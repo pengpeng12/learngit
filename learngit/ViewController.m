@@ -146,6 +146,24 @@
          //删除一个没有被合并过的分支：git branch -D dev-2 （强行删除） 
                                         
                                         
+         //远程仓库    1.创建SSH Key
+                        ssh-keygen -t rsa -C "1234567890@139.com"
+                      在主用户目录下的.ssh中找到 id_rsa 和 id_rsa.pub文件
+                登陆GitHub，添加"add SSH key",粘贴 id_rsa.pub文件的内容
+                
+                git remote add origin git@github.com:pengpeng12/项目名.git
+                git push -u origin master
+         
+         克隆远程项目到本地： git clone git@github.com:pengpeng12/项目名.git
+         
+         
+         //查看远程库的信息
+         git remote  或者 git remote -v
+         git push origin (branch-Name)   如果失败，先用 git pull
+         伙伴要在dev分支上开发，就必须创建远程origin的dev到本地
+         git checkout -b dev origin／dev
+         git pull 如果失败，是因为没指定dev与远程origin／dev分支的链接，用：git branch --set-upstream dev origin/dev
+         
          
     */
 }
